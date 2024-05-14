@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Nómina</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+  <body>
+    <h1>Sistema de Nómina</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+        <li><a href="{{ url_for('empleados') }}">Empleados</a></li>
+        <li><a href="{{ url_for('nomina') }}">Nómina</a></li>
+        <li><a href="{{ url_for('gestion_humana') }}">Gestión Humana</a></li>
+      </ul>
+    </nav>
+    <header>
+      <div>
+        <h2>Inicio de Sesión</h2>
+        <input type="email" id="email" placeholder="Correo electrónico" />
+        <input type="password" id="password" placeholder="Contraseña" />
+        <button onclick="iniciarSesion()">Iniciar Sesión</button>
+      </div>
+      
+    </header>
+
+    <main>
+
+      
+
+      <div>
+        <h2>Pagar Nómina</h2>
+        <button onclick="pagarNomina()">Pagar Nómina</button>
+      </div>
+
+      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+      <section class="hero">
+        <h1>Gestiona tu nómina de manera eficiente</h1>
+        <p>Simplifica tus procesos de nómina con nuestra plataforma segura y confiable.</p>
+      </section>
+
+      <section class="features">
+        <div class="feature">
+          <i class="fas fa-user-plus"></i>
+          <h3>Gestión de Empleados</h3>
+          <p>Administra y actualiza la información de tus empleados de manera sencilla.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <h3>Pago de Nómina</h3>
+          <p>Realiza el pago de nómina de forma automática y puntual.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-envelope"></i>
+          <h3>Notificaciones</h3>
+          <p>Mantén informados a tus empleados con notificaciones automáticas por correo electrónico.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Sistema de Nómina. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

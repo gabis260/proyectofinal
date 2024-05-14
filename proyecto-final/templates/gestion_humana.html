@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestión Humana</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    <h1>Gestión Humana</h1>
+    <a href="{{ url_for('index') }}">Volver</a>
+
+    <h2>Contratar Empleado</h2>
+    <form id="contratar-empleado-form">
+      <input type="text" id="nombre" placeholder="Nombre" required>
+      <input type="email" id="email" placeholder="Correo electrónico" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <input type="text" id="cargo" placeholder="Cargo" required>
+      <button type="submit">Contratar Empleado</button>
+    </form>
+
+    <h2>Lista de Empleados</h2>
+    <table id="empleados-tabla">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Correo electrónico</th>
+          <th>Cargo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='js/gestion_humana.js') }}"></script>
+  </body>
+</html>

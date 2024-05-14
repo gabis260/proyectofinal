@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Empleados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    <h1>Empleados</h1>
+    <a href="{{ url_for('index') }}">Volver</a>
+
+    <form id="crear-empleado-form">
+    <input type="text" id="nombre" placeholder="Nombre" required>
+    <input type="email" id="email" placeholder="Correo electrónico" required>
+    <input type="password" id="password" placeholder="Contraseña" required>
+    <button type="submit">Crear Empleado</button>
+  </form>
+    <h2>Lista de Empleados</h2>
+    <table id="empleados-tabla">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Correo electrónico</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='js/empleados.js') }}"></script>
+  </body>
+</html>

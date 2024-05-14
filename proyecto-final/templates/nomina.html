@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nómina</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    <h1>Nómina</h1>
+    <a href="{{ url_for('index') }}">Volver</a>
+
+    <h2>Pagar Nómina</h2>
+    <button id="pagar-nomina">Pagar Nómina</button>
+
+    <h2>Nóminas Pagadas</h2>
+    <table id="nominas-tabla">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Empleado</th>
+          <th>Fecha</th>
+          <th>Salario</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='js/nomina.js') }}"></script>
+  </body>
+</html>

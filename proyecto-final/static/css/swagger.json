@@ -1,0 +1,288 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Sistema de Nómina",
+      "description": "API para gestionar el sistema de nómina",
+      "version": "1.0.0"
+    },
+    "basePath": "/api",
+    "paths": {
+      "/empleados": {
+        "get": {
+          "summary": "Obtener todos los empleados",
+          "responses": {
+            "200": {
+              "description": "Lista de empleados",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Empleado"
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Crear un empleado",
+          "parameters": [
+            {
+              "name": "empleado",
+              "in": "body",
+              "description": "Datos del empleado",
+              "schema": {
+                "$ref": "#/definitions/EmpleadoInput"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Empleado creado exitosamente"
+            }
+          }
+        }
+      },
+      "/empleados/{id}": {
+        "get": {
+          "summary": "Obtener un empleado",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "ID del empleado",
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Datos del empleado",
+              "schema": {
+                "$ref": "#/definitions/Empleado"
+              }
+            },
+            "404": {
+              "description": "Empleado no encontrado"
+            }
+          }
+        },
+        "put": {
+          "summary": "Actualizar un empleado",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "ID del empleado",
+              "type": "integer"
+            },
+            {
+              "name": "empleado",
+              "in": "body",
+              "description": "Datos del empleado",
+              "schema": {
+                "$ref": "#/definitions/EmpleadoInput"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Empleado actualizado exitosamente"
+            },
+            "404": {
+              "description": "Empleado no encontrado"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Eliminar un empleado",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "ID del empleado",
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Empleado eliminado exitosamente"
+            },
+            "404": {
+              "description": "Empleado no encontrado"
+            }
+          }
+        }
+      },
+      "/nomina/pago": {
+        "post": {
+          "summary": "Pagar nómina",
+          "responses": {
+            "200": {
+              "description": "Nómina pagada exitosamente"
+            }
+          }
+        }
+      },
+      "/nomina/{id}": {
+        "get": {
+          "summary": "Obtener nómina de un empleado",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "ID del empleado",
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Nóminas del empleado",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Nomina"
+                }
+              }
+            },
+            "404": {
+              "description": "Empleado no encontrado"
+            }
+          }
+        }
+      },
+      "/gestion_humana/empleados": {
+        "post": {
+          "summary": "Contratar empleado",
+          "parameters": [
+            {
+              "name": "empleado",
+              "in": "body",
+              "description": "Datos del empleado",
+              "schema": {
+                "$ref": "#/definitions/EmpleadoGestionHumanaInput"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Empleado contratado exitosamente"
+            }
+          }
+        }
+      },
+      "/gestion_humana/empleados/{id}": {
+        "put": {
+          "summary": "Actualizar empleado",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "ID del empleado",
+              "type": "integer"
+            },
+            {
+              "name": "empleado",
+              "in": "body",
+              "description": "Datos del empleado",
+              "schema": {
+                "$ref": "#/definitions/EmpleadoGestionHumanaInput"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Empleado actualizado exitosamente"
+            },
+            "404": {
+              "description": "Empleado no encontrado"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Despedir empleado",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "ID del empleado",
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Empleado despedido exitosamente"
+            },
+            "404": {
+              "description": "Empleado no encontrado"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Empleado": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "EmpleadoInput": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "EmpleadoGestionHumanaInput": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "cargo": {
+            "type": "string"
+          }
+        }
+      },
+      "Nomina": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date"
+          },
+          "salario": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
